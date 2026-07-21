@@ -1,13 +1,12 @@
 ﻿using System;
-class MainProgram
+class Program
 {
-    public static void Main(String[] args)
+    public static void Main(string[] args)
     {
-        Console.WriteLine("What's your name?");
-        string name = Console.ReadLine();
-        string NAME =  .ToUpper();
-        string Name = NAME.Insert(2,"@@");
-        Console.WriteLine("Hello! " + Name + ".");
+        Console.WriteLine("your name: ");
+        string? name = Console.ReadLine();
+        Console.WriteLine("Hello World");
+        Console.WriteLine("I'm " + name);
+
     }
 }
-
