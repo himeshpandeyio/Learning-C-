@@ -24,7 +24,8 @@ class Program
         Console.WriteLine("3.Multiply");
         Console.WriteLine("4.Divide");
 
-        Console.WriteLine("Enter your choice: ");
+        Console.WriteLine();
+        Console.Write("Enter your choice: ");
         int choice = Convert.ToInt32(Console.ReadLine());
 
         switch (choice)
@@ -34,11 +35,11 @@ class Program
                 break;
 
             case 2:
-                Console.WriteLine("difference: " + (firstNumber + secondNumber));
+                Console.WriteLine("difference: " + (firstNumber - secondNumber));
                 break;
 
             case 3:
-                Console.WriteLine("product: " + (firstNumber + secondNumber));
+                Console.WriteLine("product: " + (firstNumber * secondNumber));
                 break;
 
             case 4:
