@@ -2,4 +2,4 @@
 
 git add .
 git commit -m "Updated program running successfully"
-git push
+git push origin main
