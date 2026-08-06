@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Runtime.InteropServices;
 
 
 // class CalculatorProgram
@@ -94,4 +96,38 @@
 
 //     }
 // }
+// arrays
+// class Practice
+// {
+//     static void Main(string[] args)
+//     {
+//         string[] cars = new string[4] {"ferrari", "ford", "BMW", "mercedes"};
 
+//         // for loop  
+//         for (int i = 0; i<=cars.Length-1; i++)
+//         {
+//             Console.WriteLine(cars[i]);
+//         }
+
+//         Console.WriteLine();
+// // foreach
+//         foreach(string car in cars)
+//         {
+//             Console.WriteLine(car);
+//         }
+//     }
+// }
+
+// list
+// List<string> cars = new List<string>();
+// cars.Add("ferrari");
+// cars.Add("ford");
+// cars.Add("BMW");
+// cars.Add("mercedes");
+
+// for(int i =0; i<=cars.Count-1; i++)
+// {
+//     Console.WriteLine(cars[i]);
+// }
+
+// Student Grade Calculator
