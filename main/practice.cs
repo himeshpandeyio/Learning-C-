@@ -55,40 +55,43 @@
 //     }
 // }
 
-class NumberGuessingGame
-{
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Number Guessing Game");
-        Console.WriteLine("---------------------");
 
-        Random random = new Random();
+// NUmber Guessing Game
+// class NumberGuessingGame
+// {
+//     static void Main(string[] args)
+//     {
+//         Console.WriteLine("Number Guessing Game");
+//         Console.WriteLine("---------------------");
 
-        int secretNumber = random.Next(1, 101);
-        int attempts = 0;
-        int guess = 0;
+//         Random random = new Random();
 
-        while (guess != secretNumber)
-        {
-            Console.WriteLine("Enter your guess: ");
-            guess = Convert.ToInt32(Console.ReadLine());
-            attempts++;
+//         int secretNumber = random.Next(1, 101);
+//         int attempts = 0;
+//         int guess = 0;
 
-            if (guess == secretNumber)
-            {
-                Console.WriteLine("You guessed correctly!");
-            }
-            else if (guess > secretNumber)
-            {
-                Console.WriteLine("Too high!");
-            }
-            else
-            {
-                Console.WriteLine("Too low!");
-            }
-        }
+//         while (guess != secretNumber)
+//         {
+//             Console.WriteLine("Enter your guess: ");
+//             guess = Convert.ToInt32(Console.ReadLine());
+//             attempts++;
 
-        Console.WriteLine("You guessed the number in " + attempts + " attempts.");
+//             if (guess == secretNumber)
+//             {
+//                 Console.WriteLine("You guessed correctly!");
+//             }
+//             else if (guess > secretNumber)
+//             {
+//                 Console.WriteLine("Too high!");
+//             }
+//             else
+//             {
+//                 Console.WriteLine("Too low!");
+//             }
+//         }
 
-    }
-}
+//         Console.WriteLine("You guessed the number in " + attempts + " attempts.");
+
+//     }
+// }
+
