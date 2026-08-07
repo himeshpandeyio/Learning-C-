@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Runtime.InteropServices;
+using System.Text.Json.Serialization.Metadata;
 
 
 // class CalculatorProgram
@@ -131,3 +132,72 @@ using System.Runtime.InteropServices;
 // }
 
 // Student Grade Calculator
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("--Stuudent Grade Calculator--");
+        Console.WriteLine("------------------------------");
+
+        Console.Write("Enter the number of subjects: ");
+        int noOfSubjects = Convert.ToInt32(Console.ReadLine());
+
+        int[] marks = new int[noOfSubjects];
+
+        for (int i = 0; i < noOfSubjects; i++)
+        {
+            Console.Write($"Enter mark{i + 1}: ");
+            marks[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+        int total = CalcTotal(marks, noOfSubjects);
+
+        double average = (double)total / noOfSubjects;
+
+        string grade = CalcGrade(average);
+
+        Console.WriteLine("-------------------------");
+        Console.WriteLine($"Total: {total}");
+        Console.WriteLine($"Average: {average}");
+        Console.WriteLine($"Grade: {grade}");
+    }
+
+    static int CalcTotal(int[] marks, int noOfSubjects)
+    {
+        int total = 0;
+
+        for (int i = 0; i < noOfSubjects; i++)
+        {
+            total += marks[i];
+        }
+
+        return total;
+    }
+
+    static string CalcGrade(double average)
+    {
+        if (average >= 90)
+        { 
+            return "A"; 
+        }
+        else if (average >= 80)
+        {
+            return "B"; 
+        }
+        else if (average >= 70)
+        { 
+            return "C"; 
+        }
+        else if (average >= 60)
+        {
+             return "D";
+        }
+        else
+        { 
+            return "F"; 
+        }
+    }
+
+
+}
