@@ -133,74 +133,74 @@ using System.Text.Json.Serialization.Metadata;
 
 // Student Grade Calculator
 
-class Program
-{
-    static void Main(string[] args)
-    {
-        Console.WriteLine("--Stuudent Grade Calculator--");
-        Console.WriteLine("------------------------------");
+// class Program
+// {
+//     static void Main(string[] args)
+//     {
+//         Console.WriteLine("--Stuudent Grade Calculator--");
+//         Console.WriteLine("------------------------------");
 
-        Console.Write("Enter the number of subjects: ");
-        int noOfSubjects = Convert.ToInt32(Console.ReadLine());
+//         Console.Write("Enter the number of subjects: ");
+//         int noOfSubjects = Convert.ToInt32(Console.ReadLine());
 
-        int[] marks = new int[noOfSubjects];
+//         int[] marks = new int[noOfSubjects];
 
-        for (int i = 0; i < noOfSubjects; i++)
-        {
-            Console.Write($"Enter mark{i + 1}: ");
-            marks[i] = Convert.ToInt32(Console.ReadLine());
-        }
+//         for (int i = 0; i < noOfSubjects; i++)
+//         {
+//             Console.Write($"Enter mark{i + 1}: ");
+//             marks[i] = Convert.ToInt32(Console.ReadLine());
+//         }
 
-        int total = CalcTotal(marks, noOfSubjects);
+//         int total = CalcTotal(marks, noOfSubjects);
 
-        double average = (double)total / noOfSubjects;
+//         double average = (double)total / noOfSubjects;
 
-        string grade = CalcGrade(average);
+//         string grade = CalcGrade(average);
 
-        Console.WriteLine("-------------------------");
-        Console.WriteLine($"Total: {total}");
-        Console.WriteLine($"Average: {average}");
-        Console.WriteLine($"Grade: {grade}");
-    }
+//         Console.WriteLine("-------------------------");
+//         Console.WriteLine($"Total: {total}");
+//         Console.WriteLine($"Average: {average}");
+//         Console.WriteLine($"Grade: {grade}");
+//     }
 
-    static int CalcTotal(int[] marks, int noOfSubjects)
-    {
-        int total = 0;
+//     static int CalcTotal(int[] marks, int noOfSubjects)
+//     {
+//         int total = 0;
 
-        for (int i = 0; i < noOfSubjects; i++)
-        {
-            total += marks[i];
-        }
+//         for (int i = 0; i < noOfSubjects; i++)
+//         {
+//             total += marks[i];
+//         }
 
-        return total;
-    }
+//         return total;
+//     }
 
-    static string CalcGrade(double average)
-    {
-        if (average >= 90)
-        { 
-            return "A"; 
-        }
-        else if (average >= 80)
-        {
-            return "B"; 
-        }
-        else if (average >= 70)
-        { 
-            return "C"; 
-        }
-        else if (average >= 60)
-        {
-             return "D";
-        }
-        else
-        { 
-            return "F"; 
-        }
-    }
+//     static string CalcGrade(double average)
+//     {
+//         if (average >= 90)
+//         { 
+//             return "A"; 
+//         }
+//         else if (average >= 80)
+//         {
+//             return "B"; 
+//         }
+//         else if (average >= 70)
+//         { 
+//             return "C"; 
+//         }
+//         else if (average >= 60)
+//         {
+//              return "D";
+//         }
+//         else
+//         { 
+//             return "F"; 
+//         }
+//     }
 
 
-}
+// }
 
 // OOP Concepts
 
@@ -232,3 +232,98 @@ class Program
 //         obj.Subtract();
 //     }
 // }
+
+// ATM Simulation
+
+class ATM
+{
+   private double balance;
+
+   public ATM(double initialBalance)
+    {
+        balance = initialBalance;
+    }
+
+    public double CheckBalance()
+    {
+        return balance;
+    }
+
+    public void Deposit(double amount)
+    {
+        if (amount > 0)
+        {
+            balance = balance + amount;
+            Console.WriteLine("Deposit Successful");
+        }
+        else
+        {
+            Console.WriteLine("Invalid Deposit Amount");
+        }
+    }
+
+    public void Withdraw(double amount)
+    {
+        if (amount < 0)
+        {
+            Console.WriteLine("Invalid Withdrawl Amount.");
+        }
+        else if (amount > balance)
+        {
+            Console.WriteLine("Insufficient Balance.");
+        }
+        else
+        {
+            balance -= amount;
+            Console.WriteLine("Withdrawl Successful.");
+        }
+    }
+}
+
+class Practice
+{
+    static void Main()
+    {
+        ATM atm = new ATM(1000);
+
+        bool running = true;
+
+        while (running)
+        {
+            Console.WriteLine();
+            Console.WriteLine("========ATM=========");
+            Console.WriteLine("1.Check Balance");
+            Console.WriteLine("2.Deposit");
+            Console.WriteLine("3.Withdraw");
+            Console.WriteLine("4.Exit");
+
+            Console.Write("Choose an option: ");
+            int choice = Convert.ToInt16(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
+                    Console.WriteLine($"Balance: ${atm.CheckBalance():F2}");
+                    break;
+                case 2:
+                    Console.Write("Enter deposit anount: ");
+                    double depositAmount = Convert.ToDouble(Console.ReadLine());
+                    atm.Deposit(depositAmount);
+                    Console.WriteLine("Amount deposited successfully");
+                    break;    
+                case 3:
+                    Console.Write("Enter withdrawl amount: ");
+                    double withdrawlAmount = Convert.ToDouble(Console.ReadLine());
+                    atm.Withdraw(withdrawlAmount);
+                    break;
+                case 4:
+                    Console.WriteLine("Thank you for using the ATM!");
+                    running = false;
+                    break;
+                default:
+                    Console.WriteLine("Invalid Option.");
+                    break;        
+            }
+        }
+    }
+}
