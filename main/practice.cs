@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text.Json.Serialization.Metadata;
 
@@ -235,153 +236,211 @@ using System.Text.Json.Serialization.Metadata;
 
 // ATM Simulation
 
-class ATM
+// class ATM
+// {
+//     // Private data
+//     private double balance;
+//     private int pin;
+
+//     // Constructor
+//     public ATM(double initialBalance, int initialPin)
+//     {
+//         balance = initialBalance;
+//         pin = initialPin;
+//     }
+
+//     // Check the PIN
+//     public bool CheckPin(int enteredPin)
+//     {
+//         return enteredPin == pin;
+//     }
+
+//     // Get the current balance
+//     public double GetBalance()
+//     {
+//         return balance;
+//     }
+
+//     // Deposit money
+//     public void Deposit(double amount)
+//     {
+//         if (amount > 0)
+//         {
+//             balance += amount;
+//             Console.WriteLine("Deposit successful.");
+//         }
+//         else
+//         {
+//             Console.WriteLine("Invalid deposit amount.");
+//         }
+//     }
+
+//     // Withdraw money
+//     public void Withdraw(double amount)
+//     {
+//         if (amount <= 0)
+//         {
+//             Console.WriteLine("Invalid withdrawal amount.");
+//         }
+//         else if (amount > balance)
+//         {
+//             Console.WriteLine("Insufficient balance.");
+//         }
+//         else
+//         {
+//             balance -= amount;
+//             Console.WriteLine("Withdrawal successful.");
+//         }
+//     }
+// }
+
+// class Program
+// {
+//     static void Main()
+//     {
+//         // Create ATM with $1000 balance and PIN 1234
+//         ATM atm = new ATM(1000, 1234);
+
+//         // PIN authentication
+//         int attempts = 0;
+//         bool authenticated = false;
+
+//         while (attempts < 3)
+//         {
+//             Console.Write("Enter PIN: ");
+//             int enteredPin = Convert.ToInt16(Console.ReadLine());
+
+//             if (atm.CheckPin(enteredPin))
+//             {
+//                 Console.WriteLine("Access granted!");
+//                 authenticated = true;
+//                 break;
+//             }
+//             else
+//             {
+//                 attempts++;
+//                 Console.WriteLine("Incorrect PIN.");
+
+//                 Console.WriteLine($"Attempts remaining: {3 - attempts}");
+//             }
+//         }
+
+//         // Only show ATM menu if authentication was successful
+//         if (authenticated)
+//         {
+//             bool running = true;
+
+//             while (running)
+//             {
+//                 Console.WriteLine();
+//                 Console.WriteLine("===== ATM =====");
+//                 Console.WriteLine("1. Check Balance");
+//                 Console.WriteLine("2. Deposit");
+//                 Console.WriteLine("3. Withdraw");
+//                 Console.WriteLine("4. Exit");
+
+//                 Console.Write("Choose an option: ");
+//                 int choice = Convert.ToInt16(Console.ReadLine());
+
+//                 switch (choice)
+//                 {
+//                     case 1:
+//                         Console.WriteLine(
+//                             $"Balance: ${atm.GetBalance():F2}");
+//                         break;
+
+//                     case 2:
+//                         Console.Write("Enter deposit amount: ");
+//                         double depositAmount =
+//                             Convert.ToDouble(Console.ReadLine());
+
+//                         atm.Deposit(depositAmount);
+//                         break;
+
+//                     case 3:
+//                         Console.Write("Enter withdrawal amount: ");
+//                         double withdrawalAmount =
+//                             Convert.ToDouble(Console.ReadLine());
+
+//                         atm.Withdraw(withdrawalAmount);
+//                         break;
+
+//                     case 4:
+//                         Console.WriteLine(
+//                             "Thank you for using the ATM!");
+
+//                         running = false;
+//                         break;
+
+//                     default:
+//                         Console.WriteLine("Invalid option.");
+//                         break;
+//                 }
+//             }
+//         }
+//         else
+//         {
+//             Console.WriteLine();
+//             Console.WriteLine("Too many incorrect attempts.");
+//             Console.WriteLine("Access denied.");
+//         }
+//     }
+// }
+
+// Learning OOP
+class Student
 {
-    // Private data
-    private double balance;
-    private int pin;
+    public string? Name;
+    public int Age;
+    public string? Course;
 
-    // Constructor
-    public ATM(double initialBalance, int initialPin)
+    public void TakeInput()
     {
-        balance = initialBalance;
-        pin = initialPin;
+
+        Console.Write($"Enter the name of student: ");
+        Name = Console.ReadLine();
+
+        Console.Write($"Enter the age of student: ");
+        Age = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write($"Enter the course of student: ");
+        Course = Console.ReadLine();
+
     }
 
-    // Check the PIN
-    public bool CheckPin(int enteredPin)
+    public void Display()
     {
-        return enteredPin == pin;
+        Console.WriteLine($"Name: {Name}");
+        Console.WriteLine($"Age: {Age}");
+        Console.WriteLine($"Course: {Course}");
     }
 
-    // Get the current balance
-    public double GetBalance()
-    {
-        return balance;
-    }
-
-    // Deposit money
-    public void Deposit(double amount)
-    {
-        if (amount > 0)
-        {
-            balance += amount;
-            Console.WriteLine("Deposit successful.");
-        }
-        else
-        {
-            Console.WriteLine("Invalid deposit amount.");
-        }
-    }
-
-    // Withdraw money
-    public void Withdraw(double amount)
-    {
-        if (amount <= 0)
-        {
-            Console.WriteLine("Invalid withdrawal amount.");
-        }
-        else if (amount > balance)
-        {
-            Console.WriteLine("Insufficient balance.");
-        }
-        else
-        {
-            balance -= amount;
-            Console.WriteLine("Withdrawal successful.");
-        }
-    }
 }
 
 class Program
 {
     static void Main()
     {
-        // Create ATM with $1000 balance and PIN 1234
-        ATM atm = new ATM(1000, 1234);
+        Console.Write("How many studennts do you want to enter? ");
+        int numberOfStudents = Convert.ToInt32(Console.ReadLine());
 
-        // PIN authentication
-        int attempts = 0;
-        bool authenticated = false;
+        Student[] students = new Student[numberOfStudents];
 
-        while (attempts < 3)
+        for (int i = 0; i < numberOfStudents; i++)
         {
-            Console.Write("Enter PIN: ");
-            int enteredPin = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine($"\n--- Student {i + 1} ---");
 
-            if (atm.CheckPin(enteredPin))
-            {
-                Console.WriteLine("Access granted!");
-                authenticated = true;
-                break;
-            }
-            else
-            {
-                attempts++;
-                Console.WriteLine("Incorrect PIN.");
-
-                Console.WriteLine($"Attempts remaining: {3 - attempts}");
-            }
+            students[i] = new Student();
+            students[i].TakeInput();
         }
 
-        // Only show ATM menu if authentication was successful
-        if (authenticated)
+        Console.WriteLine("\n===== Student Details =====");
+
+        for (int i = 0; i < numberOfStudents; i++)
         {
-            bool running = true;
-
-            while (running)
-            {
-                Console.WriteLine();
-                Console.WriteLine("===== ATM =====");
-                Console.WriteLine("1. Check Balance");
-                Console.WriteLine("2. Deposit");
-                Console.WriteLine("3. Withdraw");
-                Console.WriteLine("4. Exit");
-
-                Console.Write("Choose an option: ");
-                int choice = Convert.ToInt16(Console.ReadLine());
-
-                switch (choice)
-                {
-                    case 1:
-                        Console.WriteLine(
-                            $"Balance: ${atm.GetBalance():F2}");
-                        break;
-
-                    case 2:
-                        Console.Write("Enter deposit amount: ");
-                        double depositAmount =
-                            Convert.ToDouble(Console.ReadLine());
-
-                        atm.Deposit(depositAmount);
-                        break;
-
-                    case 3:
-                        Console.Write("Enter withdrawal amount: ");
-                        double withdrawalAmount =
-                            Convert.ToDouble(Console.ReadLine());
-
-                        atm.Withdraw(withdrawalAmount);
-                        break;
-
-                    case 4:
-                        Console.WriteLine(
-                            "Thank you for using the ATM!");
-
-                        running = false;
-                        break;
-
-                    default:
-                        Console.WriteLine("Invalid option.");
-                        break;
-                }
-            }
-        }
-        else
-        {
+            students[i].Display();
             Console.WriteLine();
-            Console.WriteLine("Too many incorrect attempts.");
-            Console.WriteLine("Access denied.");
         }
+
     }
 }
