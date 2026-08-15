@@ -388,59 +388,73 @@ using System.Text.Json.Serialization.Metadata;
 // }
 
 // Learning OOP
-class Student
-{
-    public string? Name;
-    public int Age;
-    public string? Course;
+// class Student
+// {
+//     public string? Name;
+//     public int Age;
+//     public string? Course;
 
-    public void TakeInput()
-    {
+//     public void TakeInput()
+//     {
 
-        Console.Write($"Enter the name of student: ");
-        Name = Console.ReadLine();
+//         Console.Write($"Enter the name of student: ");
+//         Name = Console.ReadLine();
 
-        Console.Write($"Enter the age of student: ");
-        Age = Convert.ToInt32(Console.ReadLine());
+//         Console.Write($"Enter the age of student: ");
+//         Age = Convert.ToInt32(Console.ReadLine());
 
-        Console.Write($"Enter the course of student: ");
-        Course = Console.ReadLine();
+//         Console.Write($"Enter the course of student: ");
+//         Course = Console.ReadLine();
 
-    }
+//     }
 
-    public void Display()
-    {
-        Console.WriteLine($"Name: {Name}");
-        Console.WriteLine($"Age: {Age}");
-        Console.WriteLine($"Course: {Course}");
-    }
+//     public void Display()
+//     {
+//         Console.WriteLine($"Name: {Name}");
+//         Console.WriteLine($"Age: {Age}");
+//         Console.WriteLine($"Course: {Course}");
+//     }
 
-}
+// }
+
+// class Program
+// {
+//     static void Main()
+//     {
+//         Console.Write("How many studennts do you want to enter? ");
+//         int numberOfStudents = Convert.ToInt32(Console.ReadLine());
+
+//         Student[] students = new Student[numberOfStudents];
+
+//         for (int i = 0; i < numberOfStudents; i++)
+//         {
+//             Console.WriteLine($"\n--- Student {i + 1} ---");
+
+//             students[i] = new Student();
+//             students[i].TakeInput();
+//         }
+
+//         Console.WriteLine("\n===== Student Details =====");
+
+//         for (int i = 0; i < numberOfStudents; i++)
+//         {
+//             students[i].Display();
+//             Console.WriteLine();
+//         }
+
+//     }
+// }
 
 class Program
 {
-    static void Main()
+    public Program()
     {
-        Console.Write("How many studennts do you want to enter? ");
-        int numberOfStudents = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Hello I'm Khabib");
+    }
 
-        Student[] students = new Student[numberOfStudents];
-
-        for (int i = 0; i < numberOfStudents; i++)
-        {
-            Console.WriteLine($"\n--- Student {i + 1} ---");
-
-            students[i] = new Student();
-            students[i].TakeInput();
-        }
-
-        Console.WriteLine("\n===== Student Details =====");
-
-        for (int i = 0; i < numberOfStudents; i++)
-        {
-            students[i].Display();
-            Console.WriteLine();
-        }
-
+    static void Main(string[] args)
+    {
+        Program obj = new Program();
+        Console.ReadLine();
     }
 }
