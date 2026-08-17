@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Formats.Asn1;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -444,17 +445,73 @@ using System.Text.Json.Serialization.Metadata;
 
 //     }
 // }
+//Polymorphism
+// public class Animal
+// {
+//     public string? Name { get; set; }
+//     public void Eat()
+//     {
+//         Console.WriteLine("Eating...");
+//     }
+// }
+
+// public class Dog : Animal
+// {
+//     public void Bark()
+//     {
+//         Console.WriteLine("woof!..");
+//     }
+// }
+
+// class Program
+// {
+//     public static void Main(string[] args)
+//     {
+//         Dog dog = new Dog();
+
+//         dog.Name = "Buddy";
+//         dog.Eat();
+//         dog.Bark();
+//     }
+// }
+
+// Method Overriding , polymorphism
+
+public class Animal
+{
+    public virtual void MakeSound()
+    {
+        Console.WriteLine("Some Sound");
+    }
+}
+
+public class Dog : Animal
+{
+    public override void MakeSound()
+    {
+        Console.WriteLine("Woof!..");
+    }
+}
+
+public class Cat : Animal
+{
+    public override void MakeSound()
+    {
+        base.MakeSound();
+        Console.WriteLine("Meow!");
+    }
+}
 
 class Program
 {
-    public Program()
+    public static void Main(string[] args)
     {
-        Console.WriteLine("Hello I'm Khabib");
-    }
+        Animal dog = new Dog();
+        Animal cat = new Cat();
 
-    static void Main(string[] args)
-    {
-        Program obj = new Program();
-        Console.ReadLine();
+        dog.MakeSound();
+        cat.MakeSound();
     }
 }
+
+
