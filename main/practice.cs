@@ -517,25 +517,25 @@ using System.Text.Json.Serialization.Metadata;
 
 //Interface
 
-public interface A
-{
-    void m1();
-}
+// public interface A
+// {
+//     void m1();
+// }
 
-class B: A
-{
-    public void m1()
-    {
-        Console.WriteLine("M1");
-    }
-}
+// class B: A
+// {
+//     public void m1()
+//     {
+//         Console.WriteLine("M1");
+//     }
+// }
 
-class C
-{
-    public static void Main(String[] args)
-    {
-        B b = new B();
-        b.m1();
-        Console.ReadLine();
-    }
-}
+// class C
+// {
+//     public static void Main(String[] args)
+//     {
+//         B b = new B();
+//         b.m1();
+//         Console.ReadLine();
+//     }
+// }
