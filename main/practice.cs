@@ -477,41 +477,65 @@ using System.Text.Json.Serialization.Metadata;
 
 // Method Overriding , polymorphism
 
-public class Animal
+// public class Animal
+// {
+//     public virtual void MakeSound()
+//     {
+//         Console.WriteLine("Some Sound");
+//     }
+// }
+
+// public class Dog : Animal
+// {
+//     public override void MakeSound()
+//     {
+//         Console.WriteLine("Woof!..");
+//     }
+// }
+
+// public class Cat : Animal
+// {
+//     public override void MakeSound()
+//     {
+//         base.MakeSound();
+//         Console.WriteLine("Meow!");
+//     }
+// }
+
+// class Program
+// {
+//     public static void Main(string[] args)
+//     {
+//         Animal dog = new Dog();
+//         Animal cat = new Cat();
+
+//         dog.MakeSound();
+//         cat.MakeSound();
+//     }
+// }
+
+
+//Interface
+
+public interface A
 {
-    public virtual void MakeSound()
+    void m1();
+}
+
+class B: A
+{
+    public void m1()
     {
-        Console.WriteLine("Some Sound");
+        Console.WriteLine("M1");
     }
 }
 
-public class Dog : Animal
+class C
 {
-    public override void MakeSound()
+    public static void Main(String[] args)
     {
-        Console.WriteLine("Woof!..");
+        B b = new B();
+        b.m1();
+        Console.ReadLine();
     }
 }
-
-public class Cat : Animal
-{
-    public override void MakeSound()
-    {
-        base.MakeSound();
-        Console.WriteLine("Meow!");
-    }
-}
-
-class Program
-{
-    public static void Main(string[] args)
-    {
-        Animal dog = new Dog();
-        Animal cat = new Cat();
-
-        dog.MakeSound();
-        cat.MakeSound();
-    }
-}
-
-
